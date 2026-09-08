@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieVerse | Movie Recommendation System</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-film"></i>
+            MovieVerse
+        </div>
+
+        <div class="nav-links">
+            <button onclick="showPage('home')" class="nav-btn active-nav">
+                <i class="fa-solid fa-house"></i> Home
+            </button>
+
+            <button onclick="showPage('movies')" class="nav-btn">
+                <i class="fa-solid fa-clapperboard"></i> Movies
+            </button>
+
+            <button onclick="showPage('recommendations')" class="nav-btn">
+                <i class="fa-solid fa-heart"></i> Recommended
+            </button>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search movies..."
+                onkeyup="searchMovies()"
+            >
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+
+        <!-- ================= HOME PAGE ================= -->
+
+        <section id="home" class="page active-page">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="small-title">
+                        🎬 MOVIE RECOMMENDATION SYSTEM
+                    </span>
+
+                    <h1>
+                        Find Your Next
+                        <span>Favorite Movie</span>
+                    </h1>
+
+                    <p>
+                        Discover amazing movies from Marathi, Hindi
+                        and English cinema.
+                    </p>
+
+                    <button
+                        class="hero-btn"
+                        onclick="showPage('movies')"
+                    >
+                        Explore Movies
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD -->
+
+            <div class="dashboard">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="movieCount">50</h2>
+                        <p>Total Movies</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pink">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <div>
+                        <h2>15+</h2>
+                        <p>Recommendations</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon yellow">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+
+                    <div>
+                        <h2>3</h2>
+                        <p>Languages</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div>
+                        <h2>4.8</h2>
+                        <p>Average Rating</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- POPULAR MOVIES -->
+
+            <div class="section-title">
+
+                <div>
+                    <h2>🔥 Popular Movies</h2>
+                    <p>Trending movies you should watch</p>
+                </div>
+
+                <button onclick="showPage('movies')">
+                    View All
+                </button>
+
+            </div>
+
+
+            <div
+                id="popularMovies"
+                class="movie-grid home-grid"
+            ></div>
+
+
+        </section>
+
+
+        <!-- ================= MOVIES PAGE ================= -->
+
+        <section id="movies" class="page">
+
+            <div class="page-header">
+
+                <h1>🎥 Explore Movies</h1>
+
+                <p>
+                    Discover popular Marathi, Hindi and English movies.
+                </p>
+
+            </div>
+
+
+            <!-- FILTER BUTTONS -->
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active-filter"
+                    onclick="filterMovies('All', this)"
+                >
+                    All Movies
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterMovies('Hindi', this)"
+                >
+                    Hindi
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterMovies('English', this)"
+                >
+                    English
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterMovies('Marathi', this)"
+                >
+                    Marathi
+                </button>
+
+            </div>
+
+
+            <div
+                id="moviesContainer"
+                class="movie-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= RECOMMENDATION PAGE ================= -->
+
+        <section id="recommendations" class="page">
+
+            <div class="page-header">
+
+                <h1>❤️ Recommended For You</h1>
+
+                <p>
+                    Our top movie recommendations.
+                </p>
+
+            </div>
+
+
+            <div
+                id="recommendationContainer"
+                class="movie-grid"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= MOVIE DETAILS MODAL ================= -->
+
+    <div id="movieModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-btn"
+                onclick="closeModal()"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-poster">
+
+                <img
+                    id="modalPoster"
+                    src=""
+                    alt="Movie Poster"
+                >
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <span id="modalLanguage" class="language-tag"></span>
+
+                <h1 id="modalTitle"></h1>
+
+
+                <div class="rating">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    <span id="modalRating"></span>
+
+                </div>
+
+
+                <p>
+                    <strong>Year:</strong>
+                    <span id="modalYear"></span>
+                </p>
+
+
+                <p>
+                    <strong>Genre:</strong>
+                    <span id="modalGenre"></span>
+                </p>
+
+
+                <h3>About Movie</h3>
+
+                <p id="modalDescription"></p>
+
+
+                <div class="review-box">
+
+                    <h3>
+                        💬 Review
+                    </h3>
+
+                    <p id="modalReview"></p>
+
+                </div>
+
+
+                <button
+                    class="favorite-btn"
+                    onclick="addFavorite()"
+                >
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    Add to Favorites
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+            🎬 MovieVerse
+        </h2>
+
+        <p>
+            Discover • Watch • Enjoy
+        </p>
+
+        <p class="copyright">
+
+            © 2026 Movie Recommendation System
+
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript File -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
