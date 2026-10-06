@@ -132,7 +132,7 @@ const movies = [
         genre: "Drama, Adventure",
         rating: 8.1,
         recommended: true,
-        poster: "https://www.behance.net/gallery/2052764/Rockstar-Posters",
+        poster: https:"https://i.pinimg.com/736x/6a/bf/ce/6abfce0f247d820f0cf4f9cfea491883.jpg",
         description: "A man helps a lost child return home.",
         review: "Emotional and heartwarming family entertainment."
     },
