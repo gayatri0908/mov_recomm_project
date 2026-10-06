@@ -132,7 +132,7 @@ const movies = [
         genre: "Drama, Adventure",
         rating: 8.1,
         recommended: true,
-        poster: "https://i.pinimg.com/736x/6a/bf/ce/6abfce0f247d820f0cf4f9cfea491883.jpg",
+        poster: "https://i.pinimg.com/736x/ab/b6/b9/abb6b9a79c13075a326f7539802b346a.jpg",
         description: "A man helps a lost child return home.",
         review: "Emotional and heartwarming family entertainment."
     },
