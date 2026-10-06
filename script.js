@@ -37,7 +37,7 @@ const movies = [
         genre: "Action, Drama",
         rating: 8.2,
         recommended: true,
-        poster: "https://cdn.posteritati.com/posters/000/000/021/279/sholay-md-web.jpg",
+        poster: ,
         description: "A classic story of friendship and revenge.",
         review: "One of the most famous movies in Indian cinema."
     },
