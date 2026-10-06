@@ -125,6 +125,17 @@ const movies = [
         description: "A man helps a lost child return home.",
         review: "Emotional and heartwarming family entertainment."
     },
+   {
+        title: "Rockstar",
+        language: "Hindi",
+        year: 2015,
+        genre: "Drama, Adventure",
+        rating: 8.1,
+        recommended: true,
+        poster: "https://www.behance.net/gallery/2052764/Rockstar-Posters",
+        description: "A man helps a lost child return home.",
+        review: "Emotional and heartwarming family entertainment."
+    },
 
 
     /* ===== MARATHI MOVIES ===== */
